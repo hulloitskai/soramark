@@ -24,7 +24,6 @@ const LandingPage: PageComponent<LandingPageProps> = ({ data: { viewer } }) => {
         component={Link}
         href={viewer ? "/home" : "/login"}
         size="lg"
-        fullWidth
         radius="xl"
       >
         {viewer

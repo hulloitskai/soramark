@@ -15,7 +15,6 @@ kill_timeout = 10
   RAILS_MAILER_FROM = "Soramark <robot@soramark.me>"
   RAILS_MAILER_REPLY_TO = "Soramark Team <hello@soramark.me>"
   SENTRY_TRACES_SAMPLE_RATE = "0.02"
-  RAILS_STORAGE_SERVICE = "local"
 
 [[services]]
   protocol = "tcp"
