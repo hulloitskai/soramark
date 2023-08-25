@@ -1,0 +1,7 @@
+query BookFormQuery($bookId: ID!) {
+  book(id: $bookId) {
+    authorName
+    id
+    title
+  }
+}
