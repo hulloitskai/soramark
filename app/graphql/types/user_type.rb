@@ -8,6 +8,7 @@ module Types
 
     # == Fields
     field :avatar_url, String
+    field :books, [BookType], null: false
     field :email, String, null: false
     field :first_name, String, null: false
     field :initials, String, null: false

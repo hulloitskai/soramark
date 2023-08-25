@@ -1,12 +1,12 @@
 import type { FC } from "react";
-import { Header, Image } from "@mantine/core";
+import { Header /* Image */ } from "@mantine/core";
 
 import AppMenu from "./AppMenu";
 
 import type { AppViewerFragment } from "~/helpers/graphql";
 import type { Maybe } from "~/helpers/graphql";
 
-import iconSrc from "~/assets/images/icon.png";
+// import iconSrc from "~/assets/images/icon.png";
 
 export type AppHeaderProps = {
   readonly viewer: Maybe<AppViewerFragment>;
@@ -26,7 +26,7 @@ const AppHeader: FC<AppHeaderProps> = ({ viewer }) => (
     <Button
       component={Link}
       href="/"
-      leftIcon={<Image src={iconSrc} width={24} />}
+      // leftIcon={<Image src={iconSrc} width={24} />}
       color="dark"
       compact
       variant="subtle"

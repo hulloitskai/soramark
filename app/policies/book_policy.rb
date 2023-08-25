@@ -6,7 +6,7 @@ class BookPolicy < ApplicationPolicy
   def index = false
 
   def manage?
-    authenticate! == user
+    user = authenticate!
     book = T.cast(record, Book)
     book.owner == user
   end

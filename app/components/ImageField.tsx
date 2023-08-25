@@ -5,8 +5,8 @@ import PhotoIcon from "~icons/heroicons/photo-20-solid";
 import { Image, Input, Text, getSize } from "@mantine/core";
 import type { InputWrapperProps, MantineNumberSize } from "@mantine/core";
 
-import { AvatarFieldQueryDocument } from "~/helpers/graphql";
-import type { AvatarFieldQueryVariables } from "~/helpers/graphql";
+import { ImageFieldQueryDocument } from "~/helpers/graphql";
+import type { ImageFieldQueryVariables } from "~/helpers/graphql";
 import type { Maybe } from "~/helpers/graphql";
 
 export type ImageInput = {
@@ -15,10 +15,10 @@ export type ImageInput = {
 
 import { uploadFile } from "~/helpers/activestorage";
 
-const AVATAR_FIELD_IMAGE_SIZE: MantineNumberSize = 140;
-const AVATAR_FIELD_RADIUS: MantineNumberSize = "md";
+const IMAGE_FIELD_IMAGE_SIZE: MantineNumberSize = 200;
+const IMAGE_FIELD_RADIUS: MantineNumberSize = "md";
 
-export type AvatarFieldProps = Omit<
+export type ImageFieldProps = Omit<
   InputWrapperProps,
   "inputContainer" | "inputWrapperOrder" | "size" | "children"
 > & {
@@ -26,7 +26,7 @@ export type AvatarFieldProps = Omit<
   readonly onChange?: (value: Maybe<ImageInput>) => void;
 };
 
-const AvatarField: FC<AvatarFieldProps> = ({
+const ImageField: FC<ImageFieldProps> = ({
   value,
   onChange,
   variant,
@@ -51,14 +51,14 @@ const AvatarField: FC<AvatarFieldProps> = ({
   const [uploading, setUploading] = useState(false);
 
   // == Query
-  const onError = useApolloAlertCallback("Failed to load avatar");
-  const variables = useMemo<AvatarFieldQueryVariables | undefined>(() => {
+  const onError = useApolloAlertCallback("Failed to load image");
+  const variables = useMemo<ImageFieldQueryVariables | undefined>(() => {
     if (value) {
       return value;
     }
   }, [value]);
   const skipQuery = !value;
-  const { data, loading: queryLoading } = useQuery(AvatarFieldQueryDocument, {
+  const { data, loading: queryLoading } = useQuery(ImageFieldQueryDocument, {
     variables,
     skip: skipQuery,
     onError,
@@ -76,7 +76,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
           console.error("Image not found", formatJSON({ signedId: value }));
           showAlert({
             title: "Image not found",
-            message: "Unable to load image preview for avatar.",
+            message: "Unable to load image preview for image.",
           });
         }
       }
@@ -106,12 +106,13 @@ const AvatarField: FC<AvatarFieldProps> = ({
       <Stack align="center" spacing={8} py="sm">
         <Box pos="relative">
           <Image
-            width={AVATAR_FIELD_IMAGE_SIZE}
-            height={AVATAR_FIELD_IMAGE_SIZE}
+            width={IMAGE_FIELD_IMAGE_SIZE}
+            height={IMAGE_FIELD_IMAGE_SIZE}
+            fit="contain"
             withPlaceholder
             placeholder={
               <Skeleton
-                radius={AVATAR_FIELD_RADIUS}
+                radius={IMAGE_FIELD_RADIUS}
                 width="100%"
                 height="100%"
               />
@@ -120,7 +121,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
             styles={({ radius }) => {
               const borderRadius = getSize({
                 sizes: radius,
-                size: AVATAR_FIELD_RADIUS,
+                size: IMAGE_FIELD_RADIUS,
               });
               return {
                 root: {
@@ -164,7 +165,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
                   });
               }
             }}
-            radius={AVATAR_FIELD_RADIUS}
+            radius={IMAGE_FIELD_RADIUS}
             pos="absolute"
             inset={0}
             styles={({ radius, colors, transitionTimingFunction, fn }) => {
@@ -174,7 +175,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
                   ".mantine-LoadingOverlay-root": {
                     borderRadius: getSize({
                       sizes: radius,
-                      size: AVATAR_FIELD_RADIUS,
+                      size: IMAGE_FIELD_RADIUS,
                     }),
                   },
                   ...(src && {
@@ -214,7 +215,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
                 })}
               />
               <Text size="xs" align="center" lh={1.3} color="dark.1">
-                Drag an image or click to upload
+                drag an image or click to upload
               </Text>
             </Stack>
           </Dropzone>
@@ -230,7 +231,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
               }
             }}
           >
-            Clear image
+            clear image
           </Anchor>
         )}
       </Stack>
@@ -238,4 +239,4 @@ const AvatarField: FC<AvatarFieldProps> = ({
   );
 };
 
-export default AvatarField;
+export default ImageField;

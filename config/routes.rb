@@ -60,25 +60,14 @@ Rails.application.routes.draw do
   # == Home
   resource :home, only: :show
 
-  # == Activities
-  resources :activities, path: "/join", only: :show do
-    member do
-      get :story
-    end
-  end
-
-  # == Google Calendar Channels
-  resources :google_calendar_channels, only: [] do
-    member do
-      post :callback, path: "/notify"
-    end
-  end
+  # == Books
+  resources :books, only: :show
 
   # == Pages
   root "landings#show"
   get "/privacy" => "high_voltage/pages#show", id: "privacy_policy"
   get "/tos" => "high_voltage/pages#show", id: "terms_of_service"
-  get "/src" => redirect("https://github.com/soramark-me/soramark", status: 302)
+  get "/src" => redirect("https://github.com/hulloitskai/soramark", status: 302)
 
   # == Development
   if Rails.env.development?

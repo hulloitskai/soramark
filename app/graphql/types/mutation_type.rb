@@ -12,5 +12,10 @@ module Types
     #       mutation: Mutations::RequestUserPasswordReset
     # field :update_user_email, mutation: Mutations::UpdateUserEmail
     field :update_user, mutation: Mutations::UpdateUser
+
+    field :create_book, mutation: Mutations::CreateBook
+    field :update_book, mutation: Mutations::UpdateBook
+
+    field :create_snap, mutation: Mutations::CreateSnap
   end
 end

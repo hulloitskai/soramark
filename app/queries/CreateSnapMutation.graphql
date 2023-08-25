@@ -1,0 +1,11 @@
+mutation CreateSnapMutation($input: CreateSnapInput!) {
+  payload: createSnap(input: $input) {
+    errors {
+      field
+      message
+    }
+    snap {
+      id
+    }
+  }
+}

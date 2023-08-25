@@ -79,13 +79,13 @@ export const BookForm: FC<BookFormProps> = ({
       <Stack>
         <Stack spacing={8}>
           <TextInput
-            label="Title"
+            label="title"
             placeholder="Courage to be Disliked"
             required
             {...getInputProps("title")}
           />
           <TextInput
-            label="Author Name"
+            label="author"
             placeholder="Fumitake Koga and Ichiro Kishim"
             required
             {...getInputProps("authorName")}
@@ -98,7 +98,7 @@ export const BookForm: FC<BookFormProps> = ({
             loading={submitting}
             disabled={!isDirty()}
           >
-            {isNewBook ? "Create" : "Save"}
+            {isNewBook ? "add" : "save"}
           </Button>
         </Group>
       </Stack>

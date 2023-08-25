@@ -1,0 +1,11 @@
+mutation UpdateBookMutation($input: UpdateBookInput!) {
+  payload: updateBook(input: $input) {
+    book {
+      id
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

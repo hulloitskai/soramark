@@ -9,6 +9,7 @@
     "Node": [
       "Book",
       "Image",
+      "Snap",
       "User"
     ]
   }

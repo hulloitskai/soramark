@@ -61,6 +61,7 @@ export const APP_THEME: MantineThemeOverride = {
   components: {
     Button: {
       defaultProps: {
+        variant: "outline",
         radius: "md",
       },
     },

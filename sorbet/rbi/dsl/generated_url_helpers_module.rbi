@@ -9,10 +9,7 @@ module GeneratedUrlHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
-  def activity_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def callback_google_calendar_channel_url(*args); end
+  def book_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def destroy_user_session_url(*args); end
@@ -136,9 +133,6 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def status_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
-  def story_activity_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def test_url(*args); end

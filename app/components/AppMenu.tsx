@@ -86,10 +86,10 @@ const AppMenu: FC<AppMenuProps> = ({ viewer, sx }) => {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Item component={Link} href="/home" icon={<HomeIcon />}>
-          Home
+          home
         </Menu.Item>
         <Menu.Item component={Link} href="/user/settings" icon={<CogIcon />}>
-          Settings
+          settings
         </Menu.Item>
         <Menu.Item
           icon={<SignOutIcon />}
@@ -104,7 +104,7 @@ const AppMenu: FC<AppMenuProps> = ({ viewer, sx }) => {
             });
           }}
         >
-          Sign Out
+          sign out
         </Menu.Item>
         {!skipQuery && (
           <>
@@ -134,7 +134,7 @@ const AppMenu: FC<AppMenuProps> = ({ viewer, sx }) => {
     </Menu>
   ) : (
     <Badge component={Link} href="/login" color="gray.4" {...badgeProps}>
-      Sign In
+      sign in
     </Badge>
   );
 };

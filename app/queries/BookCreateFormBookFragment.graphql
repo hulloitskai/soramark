@@ -1,0 +1,4 @@
+fragment BookCreateFormBookFragment on Book {
+  id
+  url
+}

@@ -1,0 +1,12 @@
+mutation CreateBookMutation($input: CreateBookInput!) {
+  payload: createBook(input: $input) {
+    book {
+      ...BookCreateFormBookFragment
+      id
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

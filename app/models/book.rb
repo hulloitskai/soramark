@@ -31,9 +31,10 @@ class Book < ApplicationRecord
   # == FriendlyIdentifiable
   friendly_id :title
 
-  # == Validations
-  validates :title, :author_name, presence: true
-
   # == Associations
   belongs_to :owner, class_name: "User"
+  has_many :snaps, dependent: :destroy
+
+  # == Validations
+  validates :title, :author_name, presence: true
 end
