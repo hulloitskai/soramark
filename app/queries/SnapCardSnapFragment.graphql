@@ -1,0 +1,7 @@
+fragment SnapCardSnapFragment on Snap {
+  id
+  photo {
+    id
+    url
+  }
+}

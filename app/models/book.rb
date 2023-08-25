@@ -35,6 +35,11 @@ class Book < ApplicationRecord
   belongs_to :owner, class_name: "User"
   has_many :snaps, dependent: :destroy
 
+  sig { returns(User) }
+  def owner!
+    owner or raise ActiveRecord::RecordNotFound, "Missing owner"
+  end
+
   # == Validations
   validates :title, :author_name, presence: true
 end

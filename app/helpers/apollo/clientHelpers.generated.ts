@@ -21,6 +21,13 @@ export type CreateSnapPayloadFieldPolicy = {
 	snap?: FieldPolicy<any> | FieldReadFunction<any>,
 	success?: FieldPolicy<any> | FieldReadFunction<any>
 };
+export type DeleteSnapPayloadKeySpecifier = ('book' | 'clientMutationId' | 'errors' | 'success' | DeleteSnapPayloadKeySpecifier)[];
+export type DeleteSnapPayloadFieldPolicy = {
+	book?: FieldPolicy<any> | FieldReadFunction<any>,
+	clientMutationId?: FieldPolicy<any> | FieldReadFunction<any>,
+	errors?: FieldPolicy<any> | FieldReadFunction<any>,
+	success?: FieldPolicy<any> | FieldReadFunction<any>
+};
 export type ImageKeySpecifier = ('id' | 'signedId' | 'url' | ImageKeySpecifier)[];
 export type ImageFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -32,10 +39,11 @@ export type InputFieldErrorFieldPolicy = {
 	field?: FieldPolicy<any> | FieldReadFunction<any>,
 	message?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type MutationKeySpecifier = ('createBook' | 'createSnap' | 'testMutation' | 'updateBook' | 'updateUser' | MutationKeySpecifier)[];
+export type MutationKeySpecifier = ('createBook' | 'createSnap' | 'deleteSnap' | 'testMutation' | 'updateBook' | 'updateUser' | MutationKeySpecifier)[];
 export type MutationFieldPolicy = {
 	createBook?: FieldPolicy<any> | FieldReadFunction<any>,
 	createSnap?: FieldPolicy<any> | FieldReadFunction<any>,
+	deleteSnap?: FieldPolicy<any> | FieldReadFunction<any>,
 	testMutation?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateBook?: FieldPolicy<any> | FieldReadFunction<any>,
 	updateUser?: FieldPolicy<any> | FieldReadFunction<any>
@@ -120,6 +128,10 @@ export type StrictTypedTypePolicies = {
 	CreateSnapPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | CreateSnapPayloadKeySpecifier | (() => undefined | CreateSnapPayloadKeySpecifier),
 		fields?: CreateSnapPayloadFieldPolicy,
+	},
+	DeleteSnapPayload?: Omit<TypePolicy, "fields" | "keyFields"> & {
+		keyFields?: false | DeleteSnapPayloadKeySpecifier | (() => undefined | DeleteSnapPayloadKeySpecifier),
+		fields?: DeleteSnapPayloadFieldPolicy,
 	},
 	Image?: Omit<TypePolicy, "fields" | "keyFields"> & {
 		keyFields?: false | ImageKeySpecifier | (() => undefined | ImageKeySpecifier),

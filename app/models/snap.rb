@@ -25,6 +25,11 @@ class Snap < ApplicationRecord
   belongs_to :book
   has_one_attached :photo
 
+  sig { returns(Book) }
+  def book!
+    book or raise ActiveRecord::RecordNotFound, "Missing book"
+  end
+
   # == Validations
   validates :photo, presence: true
 end

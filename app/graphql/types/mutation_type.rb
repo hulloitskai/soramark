@@ -17,5 +17,6 @@ module Types
     field :update_book, mutation: Mutations::UpdateBook
 
     field :create_snap, mutation: Mutations::CreateSnap
+    field :delete_snap, mutation: Mutations::DeleteSnap
   end
 end

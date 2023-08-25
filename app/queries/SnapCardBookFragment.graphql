@@ -1,0 +1,4 @@
+fragment SnapCardBookFragment on Book {
+  id
+  url
+}

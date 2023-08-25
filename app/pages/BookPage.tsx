@@ -4,6 +4,7 @@ import { Image, Text } from "@mantine/core";
 import type { BookPageQuery } from "~/helpers/graphql";
 import BookEditButton from "~/components/BookEditButton";
 import SnapCreateButton from "~/components/SnapCreateButton";
+import SnapCard from "~/components/SnapCard";
 
 export type BookPageProps = PagePropsWithData<BookPageQuery>;
 
@@ -37,10 +38,14 @@ const BookPage: PageComponent<BookPageProps> = ({ data: { book } }) => {
         </Title>
         {!isEmpty(snaps) ? (
           <Group spacing={8}>
-            {snaps.map(({ id, photo }) => (
-              <Card key={id} withBorder p={0}>
-                <Image src={photo.url} width={160} height={240} />
-              </Card>
+            {snaps.map(snap => (
+              <SnapCard
+                key={snap.id}
+                onDelete={() => {
+                  router.reload({ preserveScroll: true });
+                }}
+                {...{ snap }}
+              />
             ))}
           </Group>
         ) : (
