@@ -13,12 +13,14 @@ export type SnapCardProps = Omit<CardProps, "children"> &
   Omit<ComponentPropsWithoutRef<"div">, "children"> & {
     readonly snap: SnapCardSnapFragment;
     readonly onDelete: () => void;
+    readonly onImageClick?: () => void;
   };
 
 const SnapCard: FC<SnapCardProps> = ({
   snap: { id: snapId, photo, wasProcessed },
   sx,
   onDelete,
+  onImageClick,
   ...otherProps
 }) => {
   // == Delete Mutation
@@ -57,7 +59,7 @@ const SnapCard: FC<SnapCardProps> = ({
       ]}
       {...otherProps}
     >
-      <Image src={photo.url} width={160} height={240} />
+      <Image src={photo.url} width={160} height={240} onClick={onImageClick} />
       <Group
         className="actions"
         spacing={8}

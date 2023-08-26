@@ -110,7 +110,7 @@ const BookPage: PageComponent<BookPageProps> = ({ data: { book } }) => {
                     sx={{
                       cursor: "pointer",
                     }}
-                    onClick={() => {
+                    onImageClick={() => {
                       openLightbox(index + 1);
                     }}
                     onDelete={() => {
