@@ -1,4 +1,4 @@
-import type { FC } from "react";
+import type { ComponentPropsWithoutRef, FC } from "react";
 import TextIcon from "~icons/heroicons/bars-3-center-left-20-solid";
 
 import { ActionIcon, Image } from "@mantine/core";
@@ -9,10 +9,11 @@ import type { SnapCardSnapFragment } from "~/helpers/graphql";
 
 import SnapInfo from "./SnapInfo";
 
-export type SnapCardProps = Omit<CardProps, "children"> & {
-  readonly snap: SnapCardSnapFragment;
-  readonly onDelete: () => void;
-};
+export type SnapCardProps = Omit<CardProps, "children"> &
+  Omit<ComponentPropsWithoutRef<"div">, "children"> & {
+    readonly snap: SnapCardSnapFragment;
+    readonly onDelete: () => void;
+  };
 
 const SnapCard: FC<SnapCardProps> = ({
   snap: { id: snapId, photo, wasProcessed },

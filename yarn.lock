@@ -2422,6 +2422,13 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.1.tgz#aa22750962f3bf0e79d753d3cc067f010c95f194"
   integrity sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==
 
+"@types/fslightbox-react@^1.7.3":
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/@types/fslightbox-react/-/fslightbox-react-1.7.3.tgz#e9f45d9767fc50f9c82dc063a3cdec74db615f09"
+  integrity sha512-6q1n54suIR77dTkvXDNBsd3YNK9k71T7AHgKORybi76i+Un2xYaK27bhcWyH1W/4YK/RUDHLIse1Yl8VnzPVlg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/geojson@*":
   version "7946.0.10"
   resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.10.tgz#6dfbf5ea17142f7f9a043809f1cd4c448cb68249"
@@ -4323,6 +4330,11 @@ fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+
+fslightbox-react@^1.7.6:
+  version "1.7.6"
+  resolved "https://registry.yarnpkg.com/fslightbox-react/-/fslightbox-react-1.7.6.tgz#eb9565e1f836b647cdbdf4734705222ca542dbd3"
+  integrity sha512-7LN2GZRLHo2vZGKdH+BZDJUoUDkCRCLlZ5hOwtLtZplmGZQ9nqzpG54cTax7XNjbYGTWLT6BHdMiL5zOEhiRlA==
 
 function-bind@^1.1.1:
   version "1.1.1"
