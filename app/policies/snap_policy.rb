@@ -2,6 +2,9 @@
 # frozen_string_literal: true
 
 class SnapPolicy < ApplicationPolicy
+  # == Aliases
+  alias_rule :show?, to: :manage?
+
   # == Rules
   def index = false
 

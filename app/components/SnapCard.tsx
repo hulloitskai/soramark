@@ -1,11 +1,13 @@
 import type { FC } from "react";
+import TextIcon from "~icons/heroicons/bars-3-center-left-20-solid";
+
 import { ActionIcon, Image } from "@mantine/core";
 import type { CardProps } from "@mantine/core";
 
-import {
-  DeleteSnapMutationDocument,
-  type SnapCardSnapFragment,
-} from "~/helpers/graphql";
+import { DeleteSnapMutationDocument } from "~/helpers/graphql";
+import type { SnapCardSnapFragment } from "~/helpers/graphql";
+
+import SnapInfo from "./SnapInfo";
 
 export type SnapCardProps = Omit<CardProps, "children"> & {
   readonly snap: SnapCardSnapFragment;
@@ -13,11 +15,12 @@ export type SnapCardProps = Omit<CardProps, "children"> & {
 };
 
 const SnapCard: FC<SnapCardProps> = ({
-  snap: { id: snapId, photo },
+  snap: { id: snapId, photo, wasProcessed },
   sx,
   onDelete,
   ...otherProps
 }) => {
+  // == Delete Mutation
   const onDeleteError = useApolloAlertCallback("Failed to delete snap");
   const [runDeleteMutation, { loading: deleting }] = useMutation(
     DeleteSnapMutationDocument,
@@ -40,38 +43,73 @@ const SnapCard: FC<SnapCardProps> = ({
       sx={[
         ...packSx(sx),
         ({ transitionTimingFunction }) => ({
-          ".deleteButton": {
+          ".actions": {
             opacity: 0,
             transition: `opacity 200ms ${transitionTimingFunction}`,
           },
-          "&:hover .deleteButton": {
-            opacity: 1,
+          "&:hover": {
+            ".actions": {
+              opacity: 1,
+            },
           },
         }),
       ]}
       {...otherProps}
     >
       <Image src={photo.url} width={160} height={240} />
-      <ActionIcon
-        className="deleteButton"
-        color="red"
-        radius="md"
-        loading={deleting}
+      <Group
+        className="actions"
+        spacing={8}
         pos="absolute"
         bottom={8}
         right={8}
-        onClick={() => {
-          runDeleteMutation({
-            variables: {
-              input: {
-                snapId,
-              },
-            },
-          });
-        }}
       >
-        <DeleteIcon />
-      </ActionIcon>
+        {wasProcessed && (
+          <ActionIcon
+            variant="outline"
+            color="brand"
+            radius="md"
+            sx={({ colors }) => ({
+              backgroundColor: colors.brand[0],
+              "&:hover": {
+                backgroundColor: colors.brand[1],
+              },
+            })}
+            onClick={() => {
+              openModal({
+                title: "inside this snap",
+                size: "lg",
+                children: <SnapInfo {...{ snapId }} />,
+              });
+            }}
+          >
+            <TextIcon />
+          </ActionIcon>
+        )}
+        <ActionIcon
+          variant="outline"
+          color="red"
+          radius="md"
+          loading={deleting}
+          sx={({ colors }) => ({
+            backgroundColor: colors.red[0],
+            "&:hover": {
+              backgroundColor: colors.red[1],
+            },
+          })}
+          onClick={() => {
+            runDeleteMutation({
+              variables: {
+                input: {
+                  snapId,
+                },
+              },
+            });
+          }}
+        >
+          <DeleteIcon />
+        </ActionIcon>
+      </Group>
     </Card>
   );
 };

@@ -14,6 +14,16 @@ Rails.application.configure do
         description: "Schedule purging of unattached ActiveStorage blobs.",
         cron: "0 */6 * * *",
       },
+      "process_snaps": {
+        class: "ProcessSnapsJob",
+        description: "Process unprocessed snaps.",
+        cron: "0 * * * *",
+      },
+      "analyze_snaps": {
+        class: "AnalyzeSnapsJob",
+        description: "Analyze unanalyzed snaps.",
+        cron: "30 * * * *",
+      },
     }
 
     # == Errors

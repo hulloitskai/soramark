@@ -8,7 +8,8 @@ type Book implements Node {
 
   """ID of the object."""
   id: ID!
-  snaps: [Snap!]!
+  snaps(tags: [String!]): [Snap!]!
+  tags: [String!]!
   title: String!
   url: String!
 }
@@ -138,6 +139,7 @@ type Query {
   contactEmail: String!
   imageBySignedId(signedId: String!): Image
   passwordStrength(password: String!): Float!
+  snap(id: ID!): Snap
   testEcho(text: String): String!
   user(id: ID!): User
   viewer: User
@@ -149,7 +151,9 @@ type Snap implements Node {
   """ID of the object."""
   id: ID!
   photo: Image!
+  tags: [String!]
   text: String
+  wasProcessed: Boolean!
 }
 
 type Subscription {

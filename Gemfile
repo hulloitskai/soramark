@@ -153,6 +153,12 @@ gem "sentry-rails", "~> 5.9"
 # Show static pages
 gem "high_voltage", "~> 3.1"
 
+# Perform OCR with AWS Textract
+gem "aws-sdk-textract", "~> 1.50"
+
+# Analyze extracted text with OpenAI
+gem "ruby-openai", "~> 5.1"
+
 group :development, :test do
   # Auto-detect and warn about N+1 queries
   gem "bullet"

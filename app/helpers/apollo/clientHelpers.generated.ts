@@ -1,9 +1,10 @@
 import { FieldPolicy, FieldReadFunction, TypePolicies, TypePolicy } from '@apollo/client/cache';
-export type BookKeySpecifier = ('authorName' | 'id' | 'snaps' | 'title' | 'url' | BookKeySpecifier)[];
+export type BookKeySpecifier = ('authorName' | 'id' | 'snaps' | 'tags' | 'title' | 'url' | BookKeySpecifier)[];
 export type BookFieldPolicy = {
 	authorName?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	snaps?: FieldPolicy<any> | FieldReadFunction<any>,
+	tags?: FieldPolicy<any> | FieldReadFunction<any>,
 	title?: FieldPolicy<any> | FieldReadFunction<any>,
 	url?: FieldPolicy<any> | FieldReadFunction<any>
 };
@@ -52,7 +53,7 @@ export type NodeKeySpecifier = ('id' | NodeKeySpecifier)[];
 export type NodeFieldPolicy = {
 	id?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type QueryKeySpecifier = ('activityStatus' | 'announcement' | 'book' | 'bootedAt' | 'contactEmail' | 'imageBySignedId' | 'passwordStrength' | 'testEcho' | 'user' | 'viewer' | QueryKeySpecifier)[];
+export type QueryKeySpecifier = ('activityStatus' | 'announcement' | 'book' | 'bootedAt' | 'contactEmail' | 'imageBySignedId' | 'passwordStrength' | 'snap' | 'testEcho' | 'user' | 'viewer' | QueryKeySpecifier)[];
 export type QueryFieldPolicy = {
 	activityStatus?: FieldPolicy<any> | FieldReadFunction<any>,
 	announcement?: FieldPolicy<any> | FieldReadFunction<any>,
@@ -61,16 +62,19 @@ export type QueryFieldPolicy = {
 	contactEmail?: FieldPolicy<any> | FieldReadFunction<any>,
 	imageBySignedId?: FieldPolicy<any> | FieldReadFunction<any>,
 	passwordStrength?: FieldPolicy<any> | FieldReadFunction<any>,
+	snap?: FieldPolicy<any> | FieldReadFunction<any>,
 	testEcho?: FieldPolicy<any> | FieldReadFunction<any>,
 	user?: FieldPolicy<any> | FieldReadFunction<any>,
 	viewer?: FieldPolicy<any> | FieldReadFunction<any>
 };
-export type SnapKeySpecifier = ('book' | 'id' | 'photo' | 'text' | SnapKeySpecifier)[];
+export type SnapKeySpecifier = ('book' | 'id' | 'photo' | 'tags' | 'text' | 'wasProcessed' | SnapKeySpecifier)[];
 export type SnapFieldPolicy = {
 	book?: FieldPolicy<any> | FieldReadFunction<any>,
 	id?: FieldPolicy<any> | FieldReadFunction<any>,
 	photo?: FieldPolicy<any> | FieldReadFunction<any>,
-	text?: FieldPolicy<any> | FieldReadFunction<any>
+	tags?: FieldPolicy<any> | FieldReadFunction<any>,
+	text?: FieldPolicy<any> | FieldReadFunction<any>,
+	wasProcessed?: FieldPolicy<any> | FieldReadFunction<any>
 };
 export type SubscriptionKeySpecifier = ('activityStatus' | 'testSubscription' | SubscriptionKeySpecifier)[];
 export type SubscriptionFieldPolicy = {

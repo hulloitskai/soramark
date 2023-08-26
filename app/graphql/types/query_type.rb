@@ -18,6 +18,7 @@ module Types
     field :password_strength, resolver: Queries::PasswordStrength
 
     field :book, resolver: Queries::Book
+    field :snap, resolver: Queries::Snap
     field :user, resolver: Queries::User
     field :viewer, resolver: Queries::Viewer
   end

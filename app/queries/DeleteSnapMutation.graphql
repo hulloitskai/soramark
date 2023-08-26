@@ -2,7 +2,6 @@ mutation DeleteSnapMutation($input: DeleteSnapInput!) {
   payload: deleteSnap(input: $input) {
     book {
       id
-      ...SnapCardBookFragment
     }
     errors {
       field

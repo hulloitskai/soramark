@@ -470,6 +470,51 @@ class Snap
   end
 
   module GeneratedAttributeMethods
+    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
+    def analyzed_at; end
+
+    sig { params(value: T.nilable(::ActiveSupport::TimeWithZone)).returns(T.nilable(::ActiveSupport::TimeWithZone)) }
+    def analyzed_at=(value); end
+
+    sig { returns(T::Boolean) }
+    def analyzed_at?; end
+
+    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
+    def analyzed_at_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def analyzed_at_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def analyzed_at_came_from_user?; end
+
+    sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
+    def analyzed_at_change; end
+
+    sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
+    def analyzed_at_change_to_be_saved; end
+
+    sig { returns(T::Boolean) }
+    def analyzed_at_changed?; end
+
+    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
+    def analyzed_at_in_database; end
+
+    sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
+    def analyzed_at_previous_change; end
+
+    sig { returns(T::Boolean) }
+    def analyzed_at_previously_changed?; end
+
+    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
+    def analyzed_at_previously_was; end
+
+    sig { returns(T.nilable(::ActiveSupport::TimeWithZone)) }
+    def analyzed_at_was; end
+
+    sig { void }
+    def analyzed_at_will_change!; end
+
     sig { returns(::String) }
     def book_id; end
 
@@ -651,6 +696,9 @@ class Snap
     def processed_at_will_change!; end
 
     sig { void }
+    def restore_analyzed_at!; end
+
+    sig { void }
     def restore_book_id!; end
 
     sig { void }
@@ -663,10 +711,19 @@ class Snap
     def restore_processed_at!; end
 
     sig { void }
+    def restore_tags!; end
+
+    sig { void }
     def restore_text!; end
 
     sig { void }
     def restore_updated_at!; end
+
+    sig { returns(T.nilable([T.nilable(::ActiveSupport::TimeWithZone), T.nilable(::ActiveSupport::TimeWithZone)])) }
+    def saved_change_to_analyzed_at; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_analyzed_at?; end
 
     sig { returns(T.nilable([::String, ::String])) }
     def saved_change_to_book_id; end
@@ -692,6 +749,12 @@ class Snap
     sig { returns(T::Boolean) }
     def saved_change_to_processed_at?; end
 
+    sig { returns(T.nilable([T.nilable(T::Array[::String]), T.nilable(T::Array[::String])])) }
+    def saved_change_to_tags; end
+
+    sig { returns(T::Boolean) }
+    def saved_change_to_tags?; end
+
     sig { returns(T.nilable([T.nilable(::String), T.nilable(::String)])) }
     def saved_change_to_text; end
 
@@ -703,6 +766,51 @@ class Snap
 
     sig { returns(T::Boolean) }
     def saved_change_to_updated_at?; end
+
+    sig { returns(T.nilable(T::Array[::String])) }
+    def tags; end
+
+    sig { params(value: T.nilable(T::Array[::String])).returns(T.nilable(T::Array[::String])) }
+    def tags=(value); end
+
+    sig { returns(T::Boolean) }
+    def tags?; end
+
+    sig { returns(T.nilable(T::Array[::String])) }
+    def tags_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def tags_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def tags_came_from_user?; end
+
+    sig { returns(T.nilable([T.nilable(T::Array[::String]), T.nilable(T::Array[::String])])) }
+    def tags_change; end
+
+    sig { returns(T.nilable([T.nilable(T::Array[::String]), T.nilable(T::Array[::String])])) }
+    def tags_change_to_be_saved; end
+
+    sig { returns(T::Boolean) }
+    def tags_changed?; end
+
+    sig { returns(T.nilable(T::Array[::String])) }
+    def tags_in_database; end
+
+    sig { returns(T.nilable([T.nilable(T::Array[::String]), T.nilable(T::Array[::String])])) }
+    def tags_previous_change; end
+
+    sig { returns(T::Boolean) }
+    def tags_previously_changed?; end
+
+    sig { returns(T.nilable(T::Array[::String])) }
+    def tags_previously_was; end
+
+    sig { returns(T.nilable(T::Array[::String])) }
+    def tags_was; end
+
+    sig { void }
+    def tags_will_change!; end
 
     sig { returns(T.nilable(::String)) }
     def text; end
@@ -795,6 +903,9 @@ class Snap
     def updated_at_will_change!; end
 
     sig { returns(T::Boolean) }
+    def will_save_change_to_analyzed_at?; end
+
+    sig { returns(T::Boolean) }
     def will_save_change_to_book_id?; end
 
     sig { returns(T::Boolean) }
@@ -805,6 +916,9 @@ class Snap
 
     sig { returns(T::Boolean) }
     def will_save_change_to_processed_at?; end
+
+    sig { returns(T::Boolean) }
+    def will_save_change_to_tags?; end
 
     sig { returns(T::Boolean) }
     def will_save_change_to_text?; end

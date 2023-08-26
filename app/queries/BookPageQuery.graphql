@@ -2,10 +2,7 @@ query BookPageQuery($bookId: ID!) {
   book(id: $bookId) {
     authorName
     id
-    snaps {
-      id
-      ...SnapCardSnapFragment
-    }
+    tags
     title
     url
   }

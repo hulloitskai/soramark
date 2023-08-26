@@ -1,0 +1,9 @@
+query BookPageSnapsQuery($bookId: ID!, $tags: [String!]) {
+  book(id: $bookId) {
+    id
+    snaps(tags: $tags) {
+      id
+      ...SnapCardSnapFragment
+    }
+  }
+}

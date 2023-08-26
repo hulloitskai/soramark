@@ -16,7 +16,7 @@ export type ImageInput = {
 import { uploadFile } from "~/helpers/activestorage";
 
 const AVATAR_FIELD_IMAGE_SIZE: MantineNumberSize = 140;
-const AVATAR_FIELD_RADIUS: MantineNumberSize = "md";
+const AVATAR_FIELD_RADIUS: MantineNumberSize = "100%";
 
 export type AvatarFieldProps = Omit<
   InputWrapperProps,

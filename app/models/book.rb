@@ -28,6 +28,12 @@ class Book < ApplicationRecord
   include Handled
   include FriendlyIdentifiable
 
+  # == Attributes
+  sig { returns(T::Array[String]) }
+  def tags
+    snaps.pluck(Arel.sql("DISTINCT unnest(tags)"))
+  end
+
   # == FriendlyIdentifiable
   friendly_id :title
 
