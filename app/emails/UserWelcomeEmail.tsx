@@ -14,18 +14,18 @@ const UserWelcomeEmail: PageComponent<UserWelcomeEmailProps> = ({
   const { firstName } = user;
   return (
     <>
-      <Text>Hi, {firstName}!</Text>
+      <Text>hi, {firstName}!</Text>
       <Text>
-        Thanks for making an account on Soramark.
+        thanks for making an account on soramark.
         <br />
-        We&apos;ll keep you posted when we have updates to share :)
+        we&apos;ll keep you posted when we have updates to share :)
       </Text>
     </>
   );
 };
 
 UserWelcomeEmail.layout = buildLayout<UserWelcomeEmailProps>(page => (
-  <EmailLayout header="Welcome to Soramark!">{page}</EmailLayout>
+  <EmailLayout header="welcome to soramark!">{page}</EmailLayout>
 ));
 
 export default UserWelcomeEmail;

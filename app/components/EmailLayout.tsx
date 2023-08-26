@@ -51,7 +51,7 @@ const EmailLayout: FC<EmailLayoutProps> = ({ header, preview, children }) => (
             sx={({ fn }) => ({ color: fn.dimmed() })}
             style={{ margin: `${rem(4)} 0` }}
           >
-            Sent by{" "}
+            sent by{" "}
             <Box
               component={Link}
               href="/"
@@ -63,7 +63,7 @@ const EmailLayout: FC<EmailLayoutProps> = ({ header, preview, children }) => (
             >
               Soramark
             </Box>
-            . This email loves you.
+            . this email loves you.
           </Box>
         </Box>
       </Box>
