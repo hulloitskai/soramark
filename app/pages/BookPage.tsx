@@ -46,6 +46,11 @@ const BookPage: PageComponent<BookPageProps> = ({ data: { book } }) => {
     toggler: false,
     slide: 1,
   });
+  const openLightbox = (slide: number) =>
+    setLightboxController(({ toggler }) => ({
+      toggler: !toggler,
+      slide,
+    }));
 
   return (
     <>
@@ -106,10 +111,7 @@ const BookPage: PageComponent<BookPageProps> = ({ data: { book } }) => {
                       cursor: "pointer",
                     }}
                     onClick={() => {
-                      setLightboxController({
-                        toggler: true,
-                        slide: index + 1,
-                      });
+                      openLightbox(index + 1);
                     }}
                     onDelete={() => {
                       router.reload({ preserveScroll: true });
@@ -146,12 +148,6 @@ const BookPage: PageComponent<BookPageProps> = ({ data: { book } }) => {
         toggler={lightboxController.toggler}
         slide={lightboxController.slide}
         sources={lightboxSources}
-        onClose={() => {
-          setLightboxController({
-            toggler: false,
-            slide: 1,
-          });
-        }}
       />
     </>
   );
