@@ -452,14 +452,14 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    sorbet (0.5.10950)
-      sorbet-static (= 0.5.10950)
-    sorbet-runtime (0.5.10950)
-    sorbet-static (0.5.10950-universal-darwin-22)
-    sorbet-static (0.5.10950-x86_64-linux)
-    sorbet-static-and-runtime (0.5.10950)
-      sorbet (= 0.5.10950)
-      sorbet-runtime (= 0.5.10950)
+    sorbet (0.5.11147)
+      sorbet-static (= 0.5.11147)
+    sorbet-runtime (0.5.11147)
+    sorbet-static (0.5.11147-universal-darwin)
+    sorbet-static (0.5.11147-x86_64-linux)
+    sorbet-static-and-runtime (0.5.11147)
+      sorbet (= 0.5.11147)
+      sorbet-runtime (= 0.5.11147)
     spoom (1.2.2)
       erubi (>= 1.10.0)
       sorbet (>= 0.5.10187)
@@ -534,6 +534,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  arm64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
@@ -608,8 +609,8 @@ DEPENDENCIES
   sendgrid-ruby (~> 6.6)
   sentry-rails (~> 5.9)
   silencer (~> 2.0)
-  sorbet (= 0.5.10950)
-  sorbet-runtime (~> 0.5.10950)
+  sorbet
+  sorbet-runtime
   spring
   sprockets-rails (~> 3.4)
   store_model (~> 1.6)

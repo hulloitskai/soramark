@@ -12,6 +12,10 @@ module Gpt
     end
     def complete_chat(messages)
       response = client.chat(parameters: { model: "gpt-3.5-turbo", messages: })
+      if (error = response["error"])
+        message = T.cast(error.fetch("message"), String)
+        raise "OpenAI error: #{message}"
+      end
       response.dig("choices", 0, "message", "content")
     end
 

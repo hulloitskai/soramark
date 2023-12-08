@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
 
   sig { override.returns(T.nilable(User)) }
   def current_user
-    super
+    T.cast(super, T.nilable(User))
   end
 
   sig { returns(T::Boolean) }
